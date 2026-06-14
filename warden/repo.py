@@ -39,8 +39,13 @@ REGISTRY_VERSION = "1.0"
 
 
 def rel(path: str) -> str:
-    """Repo-relative POSIX path for display."""
-    return os.path.relpath(path, REPO_ROOT).replace(os.sep, "/")
+    """Repo-relative POSIX path for display. Falls back to the absolute path if
+    `path` is on a different drive than the repo (Windows: relpath raises across
+    mounts), so this display helper never crashes a verify/run."""
+    try:
+        return os.path.relpath(path, REPO_ROOT).replace(os.sep, "/")
+    except ValueError:
+        return os.path.abspath(path).replace(os.sep, "/")
 
 
 def discover_skill_dirs(include_samples: bool = False) -> List[str]:
