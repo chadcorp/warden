@@ -71,6 +71,13 @@
       <code>py -m warden serve</code> · pure standard library · zero dependencies ·
       nothing leaves your box
     </p>
+    <div class="proof-chips" aria-label="What you can verify for yourself">
+      <span class="pchip">✓ Open source</span>
+      <span class="pchip">✓ 73/73 self-test</span>
+      <span class="pchip">✓ CI passing</span>
+      <span class="pchip">✓ Zero dependencies</span>
+      <span class="pchip">✓ Verifies on a fresh clone</span>
+    </div>
   </div>
 
   <!-- animated terminal: the real magic-moment output -->
@@ -91,6 +98,21 @@
     We don't own directory size. We own <strong>trust + curation</strong>.
     Directory figures (mcp.so ~20k, Glama 6k+) are cited from the project plan's sources, not independently verified.
   </p>
+</section>
+
+<!-- ============================ SEE IT ============================ -->
+<section class="seeit">
+  <div class="seeit-head">
+    <h2>Skills are multiplying. So are the attacks on them. <span class="grad">Watch Warden catch one.</span></h2>
+    <p class="sub">Real CLI output, ~15 seconds — a curated skill passes, a poisoned one is rejected, a tampered one won't run. No mock-ups.</p>
+  </div>
+  <figure class="seeit-fig">
+    <img src="warden-demo.gif" width="1000" height="563" loading="lazy" alt="Warden in action: a curated skill scans clean; a poisoned skill is rejected with critical findings (tool-poisoning, unsafe-exec, SSRF, capability drift); a tampered, rug-pulled skill fails hash verification.">
+  </figure>
+  <div class="seeit-cta">
+    <a class="btn btn-primary" href="#try">Try the live demo →</a>
+    <a class="btn btn-ghost" href="https://github.com/chadcorp/warden" rel="noopener">Read every line</a>
+  </div>
 </section>
 
 <!-- ============================ PROBLEM ============================ -->
@@ -307,15 +329,17 @@
 <section id="waitlist" class="waitlist">
   <div class="wl-inner">
     <h2>Be there when the node ships</h2>
-    <p>The core is free, forever. Join the waitlist for the launch, the build log, and one
-      write-up per attack class as the supply-chain fear keeps landing.</p>
+    <p>The core is free, forever — no install wall, no account. Join the list and you'll get the
+      launch, the build log, and <strong>one short write-up per attack class</strong> — tool-poisoning,
+      capability drift, rug-pulls — as the supply-chain hits keep landing. A handful of emails, no spam,
+      unsubscribe in one click.</p>
     <form class="wl-form" data-waitlist novalidate>
       <label class="sr-only" for="wl-email">Email address</label>
       <input id="wl-email" type="email" name="email" placeholder="you@yourdomain.dev" autocomplete="email" required />
       <button class="btn btn-primary" type="submit">Join the waitlist</button>
       <p class="wl-msg" data-wl-msg role="status" aria-live="polite"></p>
     </form>
-    <p class="wl-alt">Prefer to watch the code? <a href="https://github.com/chadcorp/warden" rel="noopener">Star it on GitHub</a> — stars are the other half of our launch gate.</p>
+    <p class="wl-alt">Prefer to watch the code? <a href="https://github.com/chadcorp/warden" rel="noopener">Star it on GitHub</a> — stars are the other half of our launch gate. Want the deep dive today? <a href="https://chaddly.gumroad.com/l/agent-skill-security-field-guide" rel="noopener">Read the Field&nbsp;Guide&nbsp;↗</a></p>
   </div>
 </section>
 
