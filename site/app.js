@@ -253,7 +253,7 @@ function initWaitlist() {
 // ------------------------------------------------------------
 function initReveals() {
   const targets = document.querySelectorAll(
-    ".section-head, .threat, .pillar, .pipeline, .demo-card, .skill, .compare, .scope-card, .wedge-grid, .wl-inner"
+    ".section-head, .threat, .pillar, .arch, .start-block, .demo-card, .skill, .compare, .scope-card, .wedge-grid, .wl-inner"
   );
   if (reduceMotion || !("IntersectionObserver" in window)) {
     targets.forEach((t) => t.classList.add("in"));

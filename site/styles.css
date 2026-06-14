@@ -275,3 +275,30 @@ section { padding: 0 clamp(18px, 5vw, 40px); }
 .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
 .reveal.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+/* ---------------- pillar icons ---------------- */
+.picon { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 11px; background: rgba(46,230,166,.1); border: 1px solid rgba(46,230,166,.24); color: var(--green); vertical-align: middle; }
+.picon svg { width: 22px; height: 22px; }
+.pillar .pnum { margin-left: 11px; vertical-align: middle; }
+.pillar h3 { margin-top: 15px; }
+
+/* ---------------- architecture diagram ---------------- */
+.arch { margin: 34px 0 0; border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg-soft); padding: 24px clamp(12px,3vw,30px); }
+.arch svg { width: 100%; height: auto; display: block; }
+.arch figcaption { text-align: center; color: var(--ink-faint); font-size: .84rem; margin-top: 16px; }
+
+/* ---------------- quickstart ---------------- */
+.start-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.start-label { display: flex; align-items: center; gap: 11px; font-size: .94rem; font-weight: 600; color: var(--ink); margin-bottom: 11px; }
+.start-num { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: var(--green); color: #04130d; font-size: .8rem; font-weight: 800; flex: none; }
+.code { margin: 0; background: #0c0e13; border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; font-family: var(--mono); font-size: .8rem; line-height: 1.8; color: var(--ink-dim); overflow-x: auto; white-space: pre; }
+.code .c-prompt { color: var(--ink); }
+.code .c-cmt { color: var(--ink-faint); }
+.start-note { color: var(--ink-dim); font-size: .94rem; margin: 20px 0 0; max-width: 70ch; }
+.start-note code { color: var(--green); background: rgba(46,230,166,.07); padding: 2px 6px; border-radius: 5px; }
+@media (max-width: 900px) { .start-grid { grid-template-columns: 1fr; } }
+
+/* ---------------- live badge ---------------- */
+.live-dot { display: inline-flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: .42em; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--green); background: rgba(46,230,166,.1); border: 1px solid rgba(46,230,166,.3); padding: 5px 10px 4px; border-radius: 999px; vertical-align: middle; margin-left: 12px; position: relative; top: -4px; }
+.live-dot::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 0 rgba(46,230,166,.6); animation: pulse 2.4s infinite; }
+@media (prefers-reduced-motion: reduce) { .live-dot::before { animation: none; } }

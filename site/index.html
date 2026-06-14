@@ -36,8 +36,8 @@
   <nav class="nav-links" aria-label="Primary">
     <a href="#problem">The gap</a>
     <a href="#how">How it works</a>
+    <a href="#start">Quickstart</a>
     <a href="#try">Try it</a>
-    <a href="#skills">Skills</a>
     <a href="#positioning">Why us</a>
     <a href="registry/">Registry</a>
     <a class="nav-ghost" href="https://github.com/chadcorp/warden" rel="noopener">GitHub</a>
@@ -113,32 +113,103 @@
     <p class="sub">Built to the OWASP Agentic Skills Top 10. Not a silver bullet — defense in depth, so one failure is contained and <em>visible</em> rather than silent.</p>
   </div>
   <div class="pillars">
-    <article class="pillar"><span class="pnum">01</span><h3>Content-addressed + signed + pinned</h3><p>You connect to a <strong>hash</strong>, not a name. Ed25519-signed (real RFC 8032). Change one byte and verification fails — no rug-pull.</p></article>
-    <article class="pillar"><span class="pnum">02</span><h3>Intake scanning</h3><p>Tool-poisoning, unsafe-exec, SSRF, secret-exfil, obfuscation, and capability <strong>drift</strong> — caught at the door.</p></article>
-    <article class="pillar"><span class="pnum">03</span><h3>Deny-by-default capabilities</h3><p>Each skill declares exactly what it may touch. "No network" means it <em>cannot</em> phone home. Anything undeclared is denied.</p></article>
-    <article class="pillar"><span class="pnum">04</span><h3>Sandboxed execution</h3><p>Skills run inside a declared profile, never the agent's process. A poisoned skill is contained.</p></article>
-    <article class="pillar"><span class="pnum">05</span><h3>Behavioral trust score</h3><p>Per-version and time-aware — re-publishing re-evaluates. A signed skill can <em>lose</em> trust. Not a static badge.</p></article>
-    <article class="pillar"><span class="pnum">06</span><h3>Public transparency log</h3><p>Append-only, hash-linked, Merkle-rooted. Every publish and yank is permanent and auditable. Nothing changes silently.</p></article>
+    <article class="pillar"><span class="picon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h16M4 15h16M10 3 8 21M16 3l-2 18"/></svg></span><span class="pnum">01</span><h3>Content-addressed + signed + pinned</h3><p>You connect to a <strong>hash</strong>, not a name. Ed25519-signed (real RFC 8032). Change one byte and verification fails — no rug-pull.</p></article>
+    <article class="pillar"><span class="picon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span><span class="pnum">02</span><h3>Intake scanning</h3><p>Tool-poisoning, unsafe-exec, SSRF, secret-exfil, obfuscation, and capability <strong>drift</strong> — caught at the door.</p></article>
+    <article class="pillar"><span class="picon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7-7 9-4-2-7-4.5-7-9V6z"/><path d="M8.5 8.5l7 7"/></svg></span><span class="pnum">03</span><h3>Deny-by-default capabilities</h3><p>Each skill declares exactly what it may touch. "No network" means it <em>cannot</em> phone home. Anything undeclared is denied.</p></article>
+    <article class="pillar"><span class="picon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5l8 4.5 8-4.5M12 12v9"/></svg></span><span class="pnum">04</span><h3>Sandboxed execution</h3><p>Skills run inside a declared profile, never the agent's process. A poisoned skill is contained.</p></article>
+    <article class="pillar"><span class="picon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 20V11M12 20V4M18 20v-6"/></svg></span><span class="pnum">05</span><h3>Behavioral trust score</h3><p>Per-version and time-aware — re-publishing re-evaluates. A signed skill can <em>lose</em> trust. Not a static badge.</p></article>
+    <article class="pillar"><span class="picon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.01M4.5 18h.01"/></svg></span><span class="pnum">06</span><h3>Public transparency log</h3><p>Append-only, hash-linked, Merkle-rooted. Every publish and yank is permanent and auditable. Nothing changes silently.</p></article>
   </div>
 
-  <!-- pipeline diagram -->
-  <div class="pipeline" aria-label="The trust pipeline">
-    <div class="pipe-stage"><span class="pipe-icon">⬡</span><strong>Skills in</strong><small>any source · untrusted</small></div>
-    <div class="pipe-flow" aria-hidden="true"></div>
-    <div class="pipe-stage pipe-ctl"><span class="pipe-icon">⚙</span><strong>Scan &amp; sign</strong><small>OWASP + hash</small></div>
-    <div class="pipe-flow" aria-hidden="true"></div>
-    <div class="pipe-stage pipe-ctl"><span class="pipe-icon">🛡</span><strong>Skill brain</strong><small>sandboxed</small></div>
-    <div class="pipe-flow" aria-hidden="true"></div>
-    <div class="pipe-stage"><span class="pipe-icon">▣</span><strong>Your agent</strong><small>MCP · local</small></div>
-    <div class="pipe-log">transparency log — every version auditable</div>
+  <!-- architecture diagram -->
+  <figure class="arch">
+    <svg viewBox="0 0 944 276" role="img" xmlns="http://www.w3.org/2000/svg"
+         aria-label="Warden trust pipeline: untrusted skills from any source are scanned, signed and content-pinned, then served sandboxed and deny-by-default to your local agent — with every version recorded on a public transparency log.">
+      <defs>
+        <marker id="arw" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M0 0 L10 5 L0 10 z" fill="#4a5160"/>
+        </marker>
+      </defs>
+      <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif">
+        <!-- stage 1 -->
+        <rect x="8" y="24" width="196" height="84" rx="13" fill="#15171f" stroke="#3a2630"/>
+        <circle cx="32" cy="54" r="4.5" fill="#ff5d6c"/>
+        <text x="46" y="59" fill="#e8ecf4" font-size="16.5" font-weight="700">Skills in</text>
+        <text x="20" y="89" fill="#7a8395" font-size="12.5">any source · untrusted</text>
+        <line x1="206" y1="66" x2="250" y2="66" stroke="#4a5160" stroke-width="2" marker-end="url(#arw)"/>
+        <!-- stage 2 -->
+        <rect x="252" y="24" width="196" height="84" rx="13" fill="#0f1b17" stroke="#1f6b54"/>
+        <text x="270" y="48" fill="#2ee6a6" font-size="10.5" font-weight="700" letter-spacing="1">TRUST CONTROL</text>
+        <text x="270" y="72" fill="#e8ecf4" font-size="16.5" font-weight="700">Scan &amp; Sign</text>
+        <text x="270" y="94" fill="#7a8395" font-size="12">OWASP scan + content hash</text>
+        <line x1="450" y1="66" x2="494" y2="66" stroke="#4a5160" stroke-width="2" marker-end="url(#arw)"/>
+        <!-- stage 3 -->
+        <rect x="496" y="24" width="196" height="84" rx="13" fill="#0f1b17" stroke="#1f6b54"/>
+        <text x="514" y="48" fill="#2ee6a6" font-size="10.5" font-weight="700" letter-spacing="1">TRUST CONTROL</text>
+        <text x="514" y="72" fill="#e8ecf4" font-size="16.5" font-weight="700">Skill brain</text>
+        <text x="514" y="94" fill="#7a8395" font-size="12">sandboxed · deny-by-default</text>
+        <line x1="694" y1="66" x2="738" y2="66" stroke="#4a5160" stroke-width="2" marker-end="url(#arw)"/>
+        <!-- stage 4 -->
+        <rect x="740" y="24" width="196" height="84" rx="13" fill="#101820" stroke="#2b5a72"/>
+        <circle cx="764" cy="54" r="4.5" fill="#5cc8ff"/>
+        <text x="778" y="59" fill="#e8ecf4" font-size="16.5" font-weight="700">Your agent</text>
+        <text x="752" y="89" fill="#7a8395" font-size="12.5">MCP · local · your box</text>
+
+        <!-- transparency band -->
+        <rect x="8" y="134" width="928" height="40" rx="10" fill="none" stroke="#2a3340" stroke-dasharray="5 5"/>
+        <text x="472" y="159" fill="#8b93a5" font-size="12.5" text-anchor="middle" font-family="ui-monospace,Consolas,monospace">TRANSPARENCY LOG · every publish &amp; version · hash-linked + Merkle-rooted · auditable by anyone</text>
+
+        <!-- guarantee chips -->
+        <g font-size="12.5" font-weight="600">
+          <rect x="92" y="200" width="244" height="32" rx="8" fill="#0f1f1a" stroke="#1f6b54"/>
+          <text x="214" y="220" fill="#2ee6a6" text-anchor="middle">✓ pinned hash = no rug-pull</text>
+          <rect x="352" y="200" width="208" height="32" rx="8" fill="#0f1f1a" stroke="#1f6b54"/>
+          <text x="456" y="220" fill="#2ee6a6" text-anchor="middle">✓ sandbox = contained</text>
+          <rect x="576" y="200" width="192" height="32" rx="8" fill="#0f1f1a" stroke="#1f6b54"/>
+          <text x="672" y="220" fill="#2ee6a6" text-anchor="middle">✓ deny-by-default</text>
+        </g>
+      </g>
+    </svg>
+    <figcaption>Untrusted in, trusted out — and every version on a public, auditable log.</figcaption>
+  </figure>
+</section>
+
+<!-- ============================ QUICKSTART ============================ -->
+<section id="start" class="band">
+  <div class="section-head">
+    <h2>Run it in 60 seconds</h2>
+    <p class="sub">Python 3.8+ (on Windows use the <code>py</code> launcher). No <code>pip install</code> — pure standard library, zero dependencies.</p>
   </div>
+  <div class="start-grid">
+    <div class="start-block">
+      <div class="start-label"><span class="start-num">1</span> sign &amp; verify the curated pack</div>
+      <pre class="code"><code><span class="c-prompt">git clone https://github.com/chadcorp/warden &amp;&amp; cd warden</span>
+<span class="c-prompt">py -m warden keygen</span>       <span class="c-cmt"># your curator key (root of trust)</span>
+<span class="c-prompt">py -m warden sign-all</span>     <span class="c-cmt"># scan + sign + log every skill</span>
+<span class="c-prompt">py -m warden verify-all</span>   <span class="c-cmt"># cold-verify: hash, sig, scan, score, log</span></code></pre>
+    </div>
+    <div class="start-block">
+      <div class="start-label"><span class="start-num">2</span> point any MCP agent at the node</div>
+      <pre class="code"><code><span class="c-cmt">// claude_desktop_config.json — the one config line</span>
+{
+  "mcpServers": {
+    "warden": {
+      "command": "py",
+      "args": ["-m", "warden", "serve"],
+      "cwd": "/path/to/warden"
+    }
+  }
+}</code></pre>
+    </div>
+  </div>
+  <p class="start-note">…or drive it yourself with <code>py examples/mcp_client_smoke.py</code>, and sanity-check the whole stack with <code>py -m warden selftest</code> → <strong>73/73</strong>. <a href="https://github.com/chadcorp/warden#quickstart" rel="noopener">Full quickstart on GitHub →</a></p>
 </section>
 
 <!-- ============================ TRY IT ============================ -->
 <section id="try" class="band">
   <div class="section-head">
-    <h2>See the trust controls work</h2>
-    <p class="sub">The real output of the reference scanner and verifier — no mock-ups.</p>
+    <h2>See the trust controls work <span class="live-dot">live</span></h2>
+    <p class="sub">Real output from the reference scanner and verifier — not mock-ups. <strong>Toggle the scanner</strong> between a curated and a poisoned skill, then <strong>tamper the bundle</strong> and watch the rug-pull get caught.</p>
   </div>
 
   <div class="demos">
