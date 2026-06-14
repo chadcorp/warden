@@ -102,6 +102,31 @@ Point any MCP client at the node. Claude Desktop style:
 
 See [`examples/`](examples/) for the full config and a smoke client.
 
+### Verify the live registry yourself
+
+You don't have to trust us. Check the curator's signature on the public registry
+from anywhere — this re-derives the canonical bytes and verifies the Ed25519
+signature with Warden's own pure-Python verifier:
+
+```python
+import urllib.request, base64, json
+from warden import ed25519
+from warden.canonical import canonicalize
+
+url = "https://warden-8c4.pages.dev/registry/index.json"
+req = urllib.request.Request(url, headers={"User-Agent": "warden-verify/1.0"})  # any UA; some CDNs 403 the default
+obj = json.load(urllib.request.urlopen(req, timeout=20))
+data = obj["index"]
+ok = ed25519.verify(bytes.fromhex(data["curator_key"]),
+                    canonicalize(data), base64.b64decode(obj["signature"]))
+print("VERIFIED" if ok else "TAMPERED", ed25519.fingerprint(bytes.fromhex(data["curator_key"])))
+# -> VERIFIED warden:cd015c720e6027fd
+```
+
+Change one byte of the index and the signature fails. The
+[GitHub mirror](https://chadcorp.github.io/warden/registry/index.json) serves the
+identical signed bytes.
+
 ---
 
 ## Phases 1–4 (now built)
