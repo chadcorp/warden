@@ -7,7 +7,7 @@
 // Netlify Forms / custom URL that accepts a POST {email}. Leave "" for preview
 // mode (shows success UX, logs a console warning, stores locally as a fallback).
 // ============================================================
-const WAITLIST_ENDPOINT = "";
+const WAITLIST_ENDPOINT = "https://formspree.io/f/mjgdjana";
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
