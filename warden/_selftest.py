@@ -199,6 +199,22 @@ def _test_scanner(t: _T, workdir: str) -> None:
     t.ok("scanner: waiver downgrades to ACK", all(f.severity != "HIGH" for f in wres.findings)
          and any(f.severity == "ACK" for f in wres.findings))
 
+    # a missing/typo'd path must ERROR, never silently "pass" -- a false-clean is
+    # the worst failure mode for a security scanner.
+    raised = False
+    try:
+        scanner.scan_bundle(os.path.join(root, "does-not-exist"))
+    except scanner.ScanError:
+        raised = True
+    t.ok("scanner: missing path raises (never false-clean)", raised)
+
+    # a real directory with nothing to scan is 'empty', not a clean 'pass'.
+    empty_dir = os.path.join(root, "empty-bundle")
+    os.makedirs(empty_dir, exist_ok=True)
+    eres = scanner.scan_bundle(empty_dir)
+    t.ok("scanner: empty bundle is 'empty', not 'pass'", eres.verdict == "empty",
+         scanner.summarize(eres))
+
 
 def _test_policy(t: _T) -> None:
     eng = policy.PolicyEngine({"network": "none", "filesystem_read": [], "shell": False})

@@ -166,10 +166,19 @@ class Finding:
         }
 
 
+class ScanError(Exception):
+    """The scan could not be performed (e.g. the path is not a skill directory).
+
+    Raised rather than returned so a missing/typo'd path can never be mistaken
+    for a clean result — the worst failure mode for a security scanner."""
+
+
 class ScanResult:
-    def __init__(self, findings: List[Finding], waivers: List[Dict[str, Any]]):
+    def __init__(self, findings: List[Finding], waivers: List[Dict[str, Any]],
+                 n_files: Optional[int] = None):
         self.findings = findings
         self.waivers = waivers
+        self.n_files = n_files  # files actually scanned; 0 => nothing to scan
 
     @property
     def counts(self) -> Dict[str, int]:
@@ -180,7 +189,8 @@ class ScanResult:
 
     @property
     def verdict(self) -> str:
-        """'reject' on any (un-waived) CRITICAL, else 'flag' on any HIGH, else 'pass'."""
+        """'reject' on any (un-waived) CRITICAL, else 'flag' on any HIGH/MEDIUM,
+        else 'empty' if nothing was scanned, else 'pass'."""
         sevs = {f.severity for f in self.findings}
         if "CRITICAL" in sevs:
             return "reject"
@@ -188,6 +198,8 @@ class ScanResult:
             return "flag"
         if {"MEDIUM"} & sevs:
             return "flag"
+        if self.n_files == 0:
+            return "empty"  # scanned nothing -> NOT a clean pass
         return "pass"
 
     def to_dict(self) -> Dict[str, Any]:
@@ -249,6 +261,8 @@ def _iter_scan_files(skill_dir: str) -> List[Tuple[str, str]]:
 
 def scan_bundle(skill_dir: str, manifest: Optional[Dict[str, Any]] = None) -> ScanResult:
     """Scan a skill bundle and return findings + verdict."""
+    if not os.path.isdir(skill_dir):
+        raise ScanError(f"not a skill directory: {skill_dir}")
     if manifest is None:
         try:
             manifest = manifest_mod.load(skill_dir)
@@ -310,7 +324,7 @@ def scan_bundle(skill_dir: str, manifest: Optional[Dict[str, Any]] = None) -> Sc
                     "scope": w.get("scope", "bundle"),
                 })
 
-    return ScanResult(findings, waivers_meta)
+    return ScanResult(findings, waivers_meta, n_files=len(file_texts))
 
 
 def _drift_findings(caps: Dict[str, Any], file_texts: Dict[str, str]) -> List[Finding]:
@@ -350,5 +364,7 @@ def _drift_findings(caps: Dict[str, Any], file_texts: Dict[str, str]) -> List[Fi
 
 def summarize(result: ScanResult) -> str:
     c = result.counts
+    if result.verdict == "empty":
+        return "verdict=empty [no scannable files]"
     nonzero = ", ".join(f"{k}:{v}" for k, v in c.items() if v) or "clean"
     return f"verdict={result.verdict} [{nonzero}]"

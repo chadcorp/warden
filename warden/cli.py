@@ -34,7 +34,7 @@ import os
 import sys
 from typing import List, Optional
 
-from . import __version__, ed25519, repo, scanner
+from . import __version__, ed25519, manifest, repo, scanner
 from .sign import sign_skill, SignError
 from .translog import TransparencyLog
 from .verify import verify_skill
@@ -87,6 +87,9 @@ def cmd_scan(args: List[str]) -> int:
     skill_dir = args[0]
     result = scanner.scan_bundle(skill_dir)
     print(f"{skill_dir}: {scanner.summarize(result)}")
+    if result.verdict == "empty":
+        print("  no scannable files found here — is this a skill bundle?", file=sys.stderr)
+        return 2
     for f in result.findings:
         print(f"  [{f.severity:<8}] {f.klass:<14} {f.file}:{f.line}  {f.message}")
         if f.snippet:
@@ -460,7 +463,21 @@ def main(argv: Optional[List[str]] = None) -> int:
     if not fn:
         print(f"unknown command: {cmd}\n{__doc__}", file=sys.stderr)
         return 2
-    return fn(rest)
+    try:
+        return fn(rest)
+    except (scanner.ScanError, manifest.ManifestError) as exc:
+        # expected input errors (bad path, missing/invalid manifest) — one clean line
+        print(f"warden: {exc}", file=sys.stderr)
+        return 2
+    except KeyboardInterrupt:
+        print(file=sys.stderr)
+        return 130
+    except Exception as exc:  # a user should never see a raw traceback
+        if os.environ.get("WARDEN_DEBUG"):
+            raise
+        print(f"warden: {type(exc).__name__}: {exc}  (set WARDEN_DEBUG=1 for the trace)",
+              file=sys.stderr)
+        return 1
 
 
 if __name__ == "__main__":

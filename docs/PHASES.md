@@ -4,7 +4,7 @@ Warden's roadmap, phase by phase, with the exact commands to drive each one.
 
 **Phases 1–4 are now built as reference implementations** — local-first, pure
 Python standard library, zero third-party runtime dependencies, all verified by a
-73/73 self-test. This means the *technical capability* of every phase exists and
+75/75 self-test. This means the *technical capability* of every phase exists and
 runs on your machine today. What remains is the **business rollout**: hosting, the
 paid tiers (Pro / Team / Scan API as products), billing, SSO, and go-to-market.
 The user consciously chose to build the technical capabilities ahead of the

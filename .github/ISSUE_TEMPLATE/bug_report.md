@@ -23,4 +23,4 @@ What you expected instead.
 - Warden version (`py -m warden version`):
 
 **Self-test**
-Output of `py -m warden selftest` (does it still pass 73/73?).
+Output of `py -m warden selftest` (does it still pass 75/75?).

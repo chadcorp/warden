@@ -110,7 +110,7 @@ remain pure standard library, zero third-party runtime dependencies.
 | 4 | Trust-graded signed static index | `index_build.py` | `site/registry/` HTML + **signed `index.json`** (verifies) |
 | 4 | Cloudflare Pages deploy prep | `site/_headers`, `_redirects`, `DEPLOY_CLOUDFLARE.md` | static, deploy-ready |
 
-**Verification:** self-test **73/73**; node integration exercises sandboxed code
+**Verification:** self-test **75/75**; node integration exercises sandboxed code
 execution, memory recall, and verified knowledge reads; `verify-all` 6/6 VERIFIED
 11/11; transparency log 7 entries, integrity OK, deterministic root.
 

@@ -7,7 +7,7 @@ All notable changes to Warden are documented here. This project follows
 
 The phase capabilities are now built as **reference implementations**:
 local-first, pure Python standard library, zero third-party runtime dependencies,
-all verified by a **73/73** self-test. The technical capability of every phase
+all verified by a **75/75** self-test. The technical capability of every phase
 runs on your machine today; what remains is the **business rollout** — hosting,
 the paid tiers (Pro / Team / Scan API as products), billing, SSO, and
 go-to-market. See [`docs/PHASES.md`](docs/PHASES.md) and

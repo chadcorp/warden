@@ -6,7 +6,7 @@ Brief description.
 
 ## Checklist
 
-- [ ] `py -m warden selftest` passes (73/73)
+- [ ] `py -m warden selftest` passes (75/75)
 - [ ] If I touched the `warden/` package, it remains **pure standard library**
       (zero third-party runtime dependencies)
 - [ ] If I changed a manifest/signature/log shape, I kept the JSON Schema in

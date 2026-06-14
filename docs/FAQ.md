@@ -134,7 +134,7 @@ reconciles the claim against the content.
 ### What is NOT built yet?
 
 The **phase capabilities are now built as reference implementations** — local,
-zero-dependency, verified by a 73/73 self-test. Sandboxed `kind:"code"` execution
+zero-dependency, verified by a 75/75 self-test. Sandboxed `kind:"code"` execution
 (`run-code`), private encrypted memory (`memory`), signed knowledge packs
 (`kpack`), safe auto-updates (`update`), scan reports (`scan-report`), org policy
 (`policy`), the audit log (`audit-log`), multi-curator trust roots (`add-root`),

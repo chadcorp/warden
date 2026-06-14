@@ -4,7 +4,7 @@
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 ![Python 3.8+](https://img.shields.io/badge/python-3.8%2B-blue)
 ![Dependencies: zero](https://img.shields.io/badge/dependencies-zero-brightgreen)
-![Self-test: 73/73](https://img.shields.io/badge/self--test-73%2F73-brightgreen)
+![Self-test: 75/75](https://img.shields.io/badge/self--test-75%2F75-brightgreen)
 
 > Connect your open-source agent to one endpoint, and it gains a curated,
 > cryptographically-signed, sandboxed set of skills — without poisoning it.
@@ -84,7 +84,7 @@ py examples/mcp_client_smoke.py
 py -m warden scan skills/_samples/poisoned-weather
 
 # everything verified in one shot
-py -m warden selftest        # 73/73 (Phase 0–4)
+py -m warden selftest        # 75/75 (Phase 0–4)
 ```
 
 ### Wire it into your agent
@@ -108,7 +108,7 @@ See [`examples/`](examples/) for the full config and a smoke client.
 
 The phase capabilities are now built as **reference implementations** —
 local-first, pure standard library, zero third-party dependencies, verified by a
-**73/73** self-test. The full command surface (`py -m warden help`):
+**75/75** self-test. The full command surface (`py -m warden help`):
 
 | Capability | Command |
 |---|---|
