@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://warden.dev/schema/signature.schema.json",
+  "title": "Warden Skill Signature Record (skill.sig.json)",
+  "description": "The detached signature record written into a signed skill bundle. The signature is computed over the canonical (sorted-key, compact UTF-8) encoding of `payload`.",
+  "type": "object",
+  "required": ["algo", "payload", "signature"],
+  "properties": {
+    "algo": { "const": "ed25519" },
+    "signature": { "type": "string", "contentEncoding": "base64", "description": "64-byte Ed25519 signature, base64" },
+    "payload": {
+      "type": "object",
+      "required": [
+        "warden_skill_signature_version", "skill", "version", "bundle_digest",
+        "manifest_digest", "capabilities", "sandbox_profile", "scan", "trust",
+        "trust_inputs", "curator_key", "curator_fingerprint", "signed_at"
+      ],
+      "properties": {
+        "warden_skill_signature_version": { "const": "1.0" },
+        "skill": { "type": "string", "description": "pack/name" },
+        "name": { "type": "string" },
+        "pack": { "type": "string" },
+        "version": { "type": "string" },
+        "title": { "type": "string" },
+        "bundle_digest": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" },
+        "manifest_digest": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" },
+        "capabilities": { "type": "object" },
+        "sandbox_profile": { "type": "string" },
+        "scan": {
+          "type": "object",
+          "required": ["verdict", "counts", "waivers"],
+          "properties": {
+            "verdict": { "enum": ["pass", "flag", "reject"] },
+            "counts": { "type": "object" },
+            "waivers": { "type": "array" }
+          }
+        },
+        "trust": {
+          "type": "object",
+          "required": ["score", "grade", "status", "provisional", "inputs_digest"],
+          "properties": {
+            "score": { "type": "integer", "minimum": 0, "maximum": 100 },
+            "grade": { "enum": ["A", "B", "C", "D", "F"] },
+            "status": { "enum": ["trusted", "rejected"] },
+            "provisional": { "type": "boolean" },
+            "inputs_digest": { "type": "string" }
+          }
+        },
+        "trust_inputs": {
+          "type": "object",
+          "description": "the exact inputs used so a verifier can RE-COMPUTE the trust score, not merely believe it",
+          "properties": {
+            "history": { "type": "object" },
+            "observation": { "type": "object" },
+            "has_tests": { "type": "boolean" },
+            "as_of": { "type": "string" }
+          }
+        },
+        "curator_key": { "type": "string", "pattern": "^[0-9a-f]{64}$", "description": "Ed25519 public key, hex" },
+        "curator_fingerprint": { "type": "string" },
+        "signed_at": { "type": "string" }
+      }
+    }
+  }
+}

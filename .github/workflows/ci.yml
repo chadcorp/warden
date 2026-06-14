@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  verify:
+    name: verify (py${{ matrix.python }} / ${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ["3.9", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: Install dev deps (for crypto interop + schema cross-checks only)
+        run: python -m pip install --upgrade pip cryptography jsonschema
+
+      - name: Self-test (zero-dep pipeline, 73 assertions)
+        run: python -m warden selftest
+
+      - name: Verify committed signatures against the committed curator key
+        run: python -m warden verify-all
+
+      - name: Transparency log integrity
+        run: python -m warden audit
+
+      - name: Schema conformance of all artifacts
+        run: python tools/schema_check.py
+
+      - name: Scanner REJECTS the poisoned sample (must fail the scan)
+        shell: bash
+        run: |
+          if python -m warden scan skills/_samples/poisoned-weather; then
+            echo "::error::poisoned sample was NOT rejected"; exit 1
+          else
+            echo "poisoned sample correctly rejected"
+          fi

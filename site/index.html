@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Warden — the trusted skill brain for open agents</title>
+<meta name="description" content="Connect your open-source agent to one endpoint and it gains a curated, cryptographically-signed, sandboxed set of skills — without poisoning it. The run-trust layer for MCP agent skills. Local-first. Zero-dependency. A signal, not a guarantee." />
+<meta name="color-scheme" content="dark" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+<!-- Open Graph / social -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Warden — the trusted skill brain for open agents" />
+<meta property="og:description" content="~20,000 places to find agent skills. Zero trustworthy places to run them. Warden is the run-trust layer: signed, scanned, sandboxed, trust-scored — local-first." />
+<meta property="og:image" content="og-image.svg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Warden — the trusted skill brain for open agents" />
+<meta name="twitter:description" content="The run-trust layer for MCP agent skills. Local-first, zero-dependency. A signal, not a guarantee." />
+
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ============================ NAV ============================ -->
+<header class="nav" id="top">
+  <a class="brand" href="#top" aria-label="Warden home">
+    <svg class="brand-mark" viewBox="0 0 32 32" width="26" height="26" aria-hidden="true">
+      <path d="M16 2 4 7v8c0 7.2 5 12.5 12 15 7-2.5 12-7.8 12-15V7L16 2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M10.5 16.2l3.8 3.8 7.2-7.6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span>Warden</span>
+  </a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="#problem">The gap</a>
+    <a href="#how">How it works</a>
+    <a href="#try">Try it</a>
+    <a href="#skills">Skills</a>
+    <a href="#positioning">Why us</a>
+    <a href="registry/">Registry</a>
+    <a class="nav-ghost" href="https://github.com/chadcorp/warden" rel="noopener">GitHub</a>
+    <a class="nav-cta" href="#waitlist">Join waitlist</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- ============================ HERO ============================ -->
+<section class="hero">
+  <div class="hero-copy">
+    <span class="eyebrow"><span class="pulse"></span> The run-trust layer for agent skills</span>
+    <h1>The trusted skill brain for <span class="grad">open agents</span>.</h1>
+    <p class="lede">
+      Connect your open-source agent to one endpoint, and it gains a curated,
+      cryptographically-signed, sandboxed set of skills — <strong>without
+      poisoning it</strong>.
+    </p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#waitlist">Join the waitlist</a>
+      <a class="btn btn-ghost" href="https://github.com/chadcorp/warden" rel="noopener">
+        <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+        Star on GitHub
+      </a>
+    </div>
+    <p class="micro">
+      <code>py -m warden serve</code> · pure standard library · zero dependencies ·
+      nothing leaves your box
+    </p>
+  </div>
+
+  <!-- animated terminal: the real magic-moment output -->
+  <div class="terminal" aria-label="Example terminal session" data-terminal>
+    <div class="term-bar"><span></span><span></span><span></span><em>warden — the magic moment</em></div>
+    <pre class="term-body" data-term-body><code></code></pre>
+  </div>
+</section>
+
+<!-- the wedge -->
+<section class="wedge">
+  <div class="wedge-grid">
+    <div class="wedge-big"><strong>~20,000</strong><span>places to <em>find</em> agent skills</span></div>
+    <div class="wedge-arrow" aria-hidden="true">→</div>
+    <div class="wedge-big wedge-zero"><strong>0</strong><span>trustworthy places to <em>run</em> them</span></div>
+  </div>
+  <p class="wedge-note">
+    We don't own directory size. We own <strong>trust + curation</strong>.
+    Directory figures (mcp.so ~20k, Glama 6k+) are cited from the project plan's sources, not independently verified.
+  </p>
+</section>
+
+<!-- ============================ PROBLEM ============================ -->
+<section id="problem" class="band">
+  <div class="section-head">
+    <h2>A verified badge is not a safe skill</h2>
+    <p class="sub">The one finding the whole project turns on: <strong>verification of identity
+      is not verification of behavior.</strong> A "verified author" badge can still turn malicious
+      on its next update.</p>
+  </div>
+  <div class="threat-grid">
+    <article class="threat"><h3>Tool poisoning</h3><p>Hidden "ignore previous instructions," covert directives, and smuggled tags that hijack the agent from inside a skill's text.</p></article>
+    <article class="threat"><h3>Rug-pull</h3><p>Ship a benign skill, earn trust, then quietly swap in malice on a later version. Identity stays "verified" the whole time.</p></article>
+    <article class="threat"><h3>Secret exfiltration</h3><p>Read your environment or credentials and ship them out — often in the same breath, behind an innocent-looking task.</p></article>
+    <article class="threat threat-key"><h3>Capability drift <span class="tag">the keystone</span></h3><p>A manifest that <em>declares</em> "no network" wrapped around a skill that actually phones home. Warden reconciles the claim against the content.</p></article>
+  </div>
+</section>
+
+<!-- ============================ PILLARS ============================ -->
+<section id="how" class="band band-alt">
+  <div class="section-head">
+    <h2>Six pillars of trust — all real in the repo</h2>
+    <p class="sub">Built to the OWASP Agentic Skills Top 10. Not a silver bullet — defense in depth, so one failure is contained and <em>visible</em> rather than silent.</p>
+  </div>
+  <div class="pillars">
+    <article class="pillar"><span class="pnum">01</span><h3>Content-addressed + signed + pinned</h3><p>You connect to a <strong>hash</strong>, not a name. Ed25519-signed (real RFC 8032). Change one byte and verification fails — no rug-pull.</p></article>
+    <article class="pillar"><span class="pnum">02</span><h3>Intake scanning</h3><p>Tool-poisoning, unsafe-exec, SSRF, secret-exfil, obfuscation, and capability <strong>drift</strong> — caught at the door.</p></article>
+    <article class="pillar"><span class="pnum">03</span><h3>Deny-by-default capabilities</h3><p>Each skill declares exactly what it may touch. "No network" means it <em>cannot</em> phone home. Anything undeclared is denied.</p></article>
+    <article class="pillar"><span class="pnum">04</span><h3>Sandboxed execution</h3><p>Skills run inside a declared profile, never the agent's process. A poisoned skill is contained.</p></article>
+    <article class="pillar"><span class="pnum">05</span><h3>Behavioral trust score</h3><p>Per-version and time-aware — re-publishing re-evaluates. A signed skill can <em>lose</em> trust. Not a static badge.</p></article>
+    <article class="pillar"><span class="pnum">06</span><h3>Public transparency log</h3><p>Append-only, hash-linked, Merkle-rooted. Every publish and yank is permanent and auditable. Nothing changes silently.</p></article>
+  </div>
+
+  <!-- pipeline diagram -->
+  <div class="pipeline" aria-label="The trust pipeline">
+    <div class="pipe-stage"><span class="pipe-icon">⬡</span><strong>Skills in</strong><small>any source · untrusted</small></div>
+    <div class="pipe-flow" aria-hidden="true"></div>
+    <div class="pipe-stage pipe-ctl"><span class="pipe-icon">⚙</span><strong>Scan &amp; sign</strong><small>OWASP + hash</small></div>
+    <div class="pipe-flow" aria-hidden="true"></div>
+    <div class="pipe-stage pipe-ctl"><span class="pipe-icon">🛡</span><strong>Skill brain</strong><small>sandboxed</small></div>
+    <div class="pipe-flow" aria-hidden="true"></div>
+    <div class="pipe-stage"><span class="pipe-icon">▣</span><strong>Your agent</strong><small>MCP · local</small></div>
+    <div class="pipe-log">transparency log — every version auditable</div>
+  </div>
+</section>
+
+<!-- ============================ TRY IT ============================ -->
+<section id="try" class="band">
+  <div class="section-head">
+    <h2>See the trust controls work</h2>
+    <p class="sub">The real output of the reference scanner and verifier — no mock-ups.</p>
+  </div>
+
+  <div class="demos">
+    <!-- scanner demo -->
+    <div class="demo-card">
+      <div class="demo-head">
+        <h3>Intake scanner</h3>
+        <div class="toggle" role="tablist" aria-label="Choose a skill to scan">
+          <button class="toggle-btn is-active" role="tab" data-scan="clean">Curated skill</button>
+          <button class="toggle-btn" role="tab" data-scan="poison">Poisoned skill</button>
+        </div>
+      </div>
+      <pre class="scan-out" data-scan-out aria-live="polite"></pre>
+    </div>
+
+    <!-- rug-pull demo -->
+    <div class="demo-card">
+      <div class="demo-head">
+        <h3>Pinned hash = no rug-pull</h3>
+        <button class="btn btn-small" data-rug-toggle>Tamper with the bundle</button>
+      </div>
+      <div class="rug" data-rug>
+        <div class="rug-row"><span>skill</span><code>research-brain/idea-scout</code></div>
+        <div class="rug-row"><span>signed hash</span><code data-rug-signed>sha256:208b0208cd3c58a9…</code></div>
+        <div class="rug-row"><span>re-derived now</span><code data-rug-now>sha256:208b0208cd3c58a9…</code></div>
+        <div class="rug-verdict" data-rug-verdict>VERIFIED — 11/11 checks · the bytes match the signature</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SKILLS ============================ -->
+<section id="skills" class="band band-alt">
+  <div class="section-head">
+    <h2>An honest trust gradient</h2>
+    <p class="sub">Five curated skills, three packs. No vanity scores — the badge tells the truth about
+      each one. <code>secret-sentinel</code> is a C on purpose.</p>
+  </div>
+  <div class="skill-list">
+    <article class="skill"><div class="skill-top"><span class="badge badge-a">Warden&nbsp;A/100&nbsp;✓</span><code>research-brain/idea-scout</code></div><p>Find and score a net-new idea before building — evidence gates and a mandatory pre-mortem.</p><small>no network · no filesystem · no shell · no secrets</small></article>
+    <article class="skill"><div class="skill-top"><span class="badge badge-a">Warden&nbsp;A/100&nbsp;✓</span><code>research-brain/fact-gate</code></div><p>Verify every factual, legal, or financial claim against a dated primary source before it ships.</p><small>no network · no filesystem · no shell · no secrets</small></article>
+    <article class="skill"><div class="skill-top"><span class="badge badge-a badge-prov">PROVISIONAL&nbsp;A/99&nbsp;✓</span><code>build-brain/build-product</code></div><p>Turn a validated idea into a complete, verified, shippable product. Still accruing clean observation.</p><small>no network · no filesystem · no shell · no secrets</small></article>
+    <article class="skill"><div class="skill-top"><span class="badge badge-a">Warden&nbsp;A/100&nbsp;✓</span><code>build-brain/ship-gate</code></div><p>An independent GO/NO-GO release gate that trusts no build claim and blocks on unwaivable conditions.</p><small>no network · no filesystem · no shell · no secrets</small></article>
+    <article class="skill"><div class="skill-top"><span class="badge badge-c badge-prov">PROVISIONAL&nbsp;C/79&nbsp;✓</span><code>compliance-brain/secret-sentinel</code></div><p>A security-review skill that must <em>name</em> attack indicators — so it ships a signed, logged scanner waiver, and the score reflects the honest cost.</p><small>no network · no filesystem · no shell · no secrets</small></article>
+  </div>
+</section>
+
+<!-- ============================ POSITIONING ============================ -->
+<section id="positioning" class="band">
+  <div class="section-head">
+    <h2>Not a directory. Not a memory product.</h2>
+    <p class="sub">The durable moat is <strong>curation + the behavioral trust score + local-first</strong> —
+      not signing alone, which becomes table stakes if it lands in the official registry. Eyes open.</p>
+  </div>
+  <div class="compare">
+    <div class="compare-row compare-head"><span>Category</span><span>They do</span><span>Warden does</span></div>
+    <div class="compare-row"><span>MCP registries<br><small>mcp.so, Glama, Smithery</small></span><span>List thousands of servers — discovery</span><span class="win">Vouch for a curated few — run-trust</span></div>
+    <div class="compare-row"><span>Memory platforms<br><small>Mem0, Zep, Letta</small></span><span>A headline memory product</span><span class="win">Memory as a scoped, safe feature — never the headline</span></div>
+    <div class="compare-row"><span>Trust incumbents<br><small>hosted / enterprise</small></span><span>Hosted, identity-verification</span><span class="win">OSS-native · local-first · behavioral-trust · curated</span></div>
+  </div>
+</section>
+
+<!-- ============================ HONEST SCOPE ============================ -->
+<section class="band band-alt scope">
+  <div class="section-head">
+    <h2>What's true today — stated plainly</h2>
+  </div>
+  <div class="scope-grid">
+    <div class="scope-card scope-yes">
+      <h3>Built &amp; verified · local, zero-dependency</h3>
+      <ul>
+        <li>The Trust Spec + 6 signed skills (incl. a sandboxed code skill) + a poisoned fixture</li>
+        <li>Sandboxed code execution · encrypted private memory · signed knowledge packs</li>
+        <li>Safe auto-update · org policy · audit log · multi-curator trust · the Scan API</li>
+        <li>Self-test 73/73 · Ed25519 + ChaCha20-Poly1305 byte-identical to a standard library</li>
+      </ul>
+    </div>
+    <div class="scope-card scope-soon">
+      <h3>The business rollout · what remains</h3>
+      <ul>
+        <li>Hosting + the paid tiers (Pro / Team / Scan API) + billing + SSO</li>
+        <li>Production-grade isolation (container / microVM / WASM) for untrusted code</li>
+        <li>Constant-time / HSM signing for a production curator</li>
+        <li>We built the capabilities; validating the business is the next gate</li>
+      </ul>
+    </div>
+  </div>
+  <p class="signal">Trust is a <strong>signal, not a guarantee.</strong> We never claim "100% safe."</p>
+</section>
+
+<!-- ============================ WAITLIST ============================ -->
+<section id="waitlist" class="waitlist">
+  <div class="wl-inner">
+    <h2>Be there when the node ships</h2>
+    <p>The core is free, forever. Join the waitlist for the launch, the build log, and one
+      write-up per attack class as the supply-chain fear keeps landing.</p>
+    <form class="wl-form" data-waitlist novalidate>
+      <label class="sr-only" for="wl-email">Email address</label>
+      <input id="wl-email" type="email" name="email" placeholder="you@yourdomain.dev" autocomplete="email" required />
+      <button class="btn btn-primary" type="submit">Join the waitlist</button>
+      <p class="wl-msg" data-wl-msg role="status" aria-live="polite"></p>
+    </form>
+    <p class="wl-alt">Prefer to watch the code? <a href="https://github.com/chadcorp/warden" rel="noopener">Star it on GitHub</a> — stars are the other half of our launch gate.</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="foot">
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <a class="brand" href="#top"><svg class="brand-mark" viewBox="0 0 32 32" width="22" height="22" aria-hidden="true"><path d="M16 2 4 7v8c0 7.2 5 12.5 12 15 7-2.5 12-7.8 12-15V7L16 2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M10.5 16.2l3.8 3.8 7.2-7.6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Warden</span></a>
+      <p>The trusted skill brain for open agents. Local-first. A signal, not a guarantee.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Project</h4>
+      <a href="registry/">Trust-graded registry</a>
+      <a href="https://github.com/chadcorp/warden" rel="noopener">GitHub repo</a>
+      <a href="https://github.com/chadcorp/warden/blob/main/TRUST_SPEC.md" rel="noopener">Trust Spec</a>
+      <a href="https://github.com/chadcorp/warden/blob/main/THREAT_MODEL.md" rel="noopener">Threat model</a>
+    </div>
+    <div class="foot-col">
+      <h4>Read</h4>
+      <a href="https://github.com/chadcorp/warden/blob/main/docs/POSITIONING.md" rel="noopener">Positioning</a>
+      <a href="https://github.com/chadcorp/warden/blob/main/docs/FAQ.md" rel="noopener">FAQ</a>
+      <a href="https://github.com/chadcorp/warden/blob/main/SECURITY.md" rel="noopener">Security</a>
+    </div>
+  </div>
+  <div class="foot-base">
+    <span>© 2026 The Warden Authors · Apache-2.0</span>
+    <span class="foot-badge">built to the OWASP Agentic Skills Top 10</span>
+  </div>
+</footer>
+
+<script src="app.js" defer></script>
+</body>
+</html>

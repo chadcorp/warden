@@ -1,0 +1,47 @@
+{
+  "algo": "ed25519",
+  "payload": {
+    "warden_skill_signature_version": "1.0",
+    "skill": "build-brain/ship-gate",
+    "name": "ship-gate",
+    "pack": "build-brain",
+    "version": "1.0.0",
+    "title": "Ship Gate",
+    "bundle_digest": "sha256:24e5b3dc3adc0bc3b974d0fa457f3bfecd331bde3e25eff5a267a60b5ed5d1d2",
+    "manifest_digest": "sha256:909bbc387f4ef27310aaafb4f802229a8458d4c089a7a634d68bc1546f87181e",
+    "capabilities": {
+      "network": "none",
+      "filesystem_read": [],
+      "filesystem_write": [],
+      "shell": false,
+      "subprocess": false,
+      "secrets": false
+    },
+    "sandbox_profile": "isolated-no-net",
+    "scan": {
+      "verdict": "pass",
+      "counts": {},
+      "waivers": []
+    },
+    "trust": {
+      "score": 100,
+      "grade": "A",
+      "status": "trusted",
+      "provisional": false,
+      "inputs_digest": "sha256:a34f5a3791a1333c6c8855cb96dde2c91b183cd7fcba0b051ca1fa12ef6d3b63"
+    },
+    "trust_inputs": {
+      "history": {},
+      "observation": {
+        "clean_runs": 41,
+        "observed_days": 52
+      },
+      "has_tests": true,
+      "as_of": "2026-06-13"
+    },
+    "curator_key": "37771d0b84600d32d9b64f42cf2d0143ef04e9bf9bbc9779f834294a36ce62ff",
+    "curator_fingerprint": "warden:cd015c720e6027fd",
+    "signed_at": "2026-06-13"
+  },
+  "signature": "HGd94/w7zKeLMqlrK5Zj0HDr1uV8SHQM9IQJJI+2TkPaaxD/3cBNgp6QPnvUw9MStMypqisdRECi3f6gis7NDA=="
+}

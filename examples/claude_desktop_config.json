@@ -1,0 +1,13 @@
+{
+  "_comment": "THE ONE CONFIG LINE. This is a Claude Desktop style MCP config. Merge the 'warden' entry below into your client's mcpServers block (Claude Desktop: claude_desktop_config.json; other MCP clients use the same shape). It points your agent at the LOCAL Warden node over stdio. Nothing leaves your box.",
+  "_launcher_note": "Use the 'py' launcher, not bare 'python'. On Windows, bare 'python' is often a broken Microsoft Store alias. 'py' resolves a real interpreter. Do NOT rely on a shebang line here -- this is JSON, and the command/args below are explicit on purpose.",
+  "_cwd_note": "Set 'cwd' to the absolute path of your WARDEN repo checkout so 'py -m warden serve' finds the package and the curated registry. The path below is an example -- change it to where you cloned the repo.",
+  "mcpServers": {
+    "warden": {
+      "_comment": "Local Warden node: verifies every curated skill cold at startup, exposes only the ones that pass (deny-by-default), and serves each WITH its provenance + trust badge. Trust is a signal, not a guarantee.",
+      "command": "py",
+      "args": ["-m", "warden", "serve"],
+      "cwd": "C:\\Users\\13067\\Desktop\\New folder\\WARDEN"
+    }
+  }
+}

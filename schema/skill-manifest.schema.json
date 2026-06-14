@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://warden.dev/schema/skill-manifest.schema.json",
+  "title": "Warden Skill Capability Manifest",
+  "description": "Deny-by-default capability manifest for a Warden skill. Anything not declared here is denied at run time.",
+  "type": "object",
+  "required": [
+    "warden_manifest_version", "name", "pack", "version", "title", "summary",
+    "author", "license", "kind", "entrypoint", "sandbox_profile", "capabilities"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "warden_manifest_version": { "const": "1.0" },
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{1,48}[a-z0-9]$",
+      "description": "lowercase kebab-case skill id"
+    },
+    "pack": { "type": "string", "description": "the skill pack this belongs to, e.g. research-brain" },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$", "description": "semver" },
+    "title": { "type": "string" },
+    "summary": { "type": "string", "maxLength": 240 },
+    "description": { "type": "string" },
+    "author": { "type": "string" },
+    "license": { "type": "string" },
+    "kind": { "enum": ["instructions", "code"] },
+    "entrypoint": { "type": "string", "description": "file the node serves/executes, e.g. SKILL.md" },
+    "input_schema": { "type": "object", "description": "JSON Schema for the skill's MCP tool input" },
+    "sandbox_profile": { "enum": ["isolated-no-net", "net-allowlist", "fs-scoped", "trusted-exec"] },
+    "capabilities": {
+      "type": "object",
+      "description": "the ONLY things this skill may touch (deny-by-default)",
+      "additionalProperties": false,
+      "properties": {
+        "network": {
+          "oneOf": [
+            { "const": "none" },
+            { "type": "array", "items": { "type": "string" }, "description": "domain allowlist (globs allowed)" }
+          ],
+          "default": "none"
+        },
+        "filesystem_read": { "type": "array", "items": { "type": "string" }, "default": [] },
+        "filesystem_write": { "type": "array", "items": { "type": "string" }, "default": [] },
+        "shell": { "type": "boolean", "default": false },
+        "subprocess": { "type": "boolean", "default": false },
+        "secrets": { "type": "boolean", "default": false }
+      }
+    },
+    "scan_allow": {
+      "type": "array",
+      "description": "curator-acknowledged scanner waivers; each must carry a written reason. Covered by the curator signature and recorded in the transparency log.",
+      "items": {
+        "type": "object",
+        "required": ["class", "reason"],
+        "properties": {
+          "class": { "type": "string" },
+          "reason": { "type": "string" },
+          "scope": { "type": "string" }
+        }
+      }
+    },
+    "tests": { "type": "array", "items": { "type": "string" } },
+    "tags": { "type": "array", "items": { "type": "string" } }
+  }
+}

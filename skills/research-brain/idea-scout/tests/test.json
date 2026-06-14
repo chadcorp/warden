@@ -1,0 +1,17 @@
+{
+  "skill": "research-brain/idea-scout",
+  "cases": [
+    {
+      "name": "rejects an evidence-free hunch",
+      "input": { "task": "an app for everyone to be more productive" },
+      "expect_contains": ["DON'T BUILD", "TEST FIRST"],
+      "rationale": "no specific buyer + no demand evidence must not score BUILD"
+    },
+    {
+      "name": "produces a pre-mortem and a cheap test",
+      "input": { "task": "a tax-mileage tracker for travel nurses", "constraints": "solo, one week" },
+      "expect_contains": ["pre-mortem", "cheap test", "pass/fail"],
+      "rationale": "every verdict must include the de-risking steps"
+    }
+  ]
+}

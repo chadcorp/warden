@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "warden-skill-brain"
+version = "0.2.0"
+description = "The trusted skill brain for open agents — sign, scan, sandbox, and trust-score MCP skills, local-first, zero-dependency."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "Apache-2.0" }
+authors = [{ name = "The Warden Authors" }]
+keywords = [
+  "mcp", "agent", "skills", "security", "supply-chain", "trust",
+  "ed25519", "transparency-log", "local-first", "ollama", "sandbox",
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python :: 3",
+  "Topic :: Security",
+  "Topic :: Software Development :: Libraries :: Application Frameworks",
+]
+
+# Zero runtime dependencies — by design. The reference node is pure stdlib so it
+# runs anywhere and "nothing leaves your box."
+dependencies = []
+
+[project.optional-dependencies]
+# Only used to CROSS-CHECK the pure-Python Ed25519 and schemas in the self-test.
+# Not required to run Warden.
+dev = ["cryptography>=41", "jsonschema>=4"]
+
+[project.scripts]
+warden = "warden.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/chadcorp/warden"
+Documentation = "https://github.com/chadcorp/warden/blob/main/TRUST_SPEC.md"
+
+[tool.setuptools]
+packages = ["warden"]
+
+# NOTE: install editable (`pip install -e .`) so the package stays alongside the
+# skills/ tree, or set WARDEN_HOME to point a relocated install at a skills repo.

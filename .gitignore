@@ -1,0 +1,22 @@
+# NEVER commit the curator private seed. This is the root of trust.
+keys/curator.seed
+keys/*.seed
+keys/*.key
+
+# Local/private runtime state (encrypted memory, audit log, sandbox temp).
+data/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.pytest_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local node state (kept out of the repo; regenerate with `warden sign-all`)
+transparency.root

@@ -1,0 +1,17 @@
+{
+  "skill": "build-brain/ship-gate",
+  "cases": [
+    {
+      "name": "blocks on a non-reconciling total",
+      "input": { "task": "deliverable where the dashboard total differs from the sum of rows" },
+      "expect_contains": ["NO-GO", "reconcile"],
+      "rationale": "a headline number that does not reconcile a second way is unwaivable"
+    },
+    {
+      "name": "re-derives rather than trusting the build log",
+      "input": { "task": "a finished workbook claimed to be correct" },
+      "expect_contains": ["re-derive", "artifacts", "GO", "NO-GO"],
+      "rationale": "the gate trusts artifacts, not the build story"
+    }
+  ]
+}

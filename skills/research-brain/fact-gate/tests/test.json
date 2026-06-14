@@ -1,0 +1,17 @@
+{
+  "skill": "research-brain/fact-gate",
+  "cases": [
+    {
+      "name": "flags an unsourced rate",
+      "input": { "task": "The deduction limit is 60% of income this year." },
+      "expect_contains": ["class", "source", "SIGNED", "SOFTENED", "CUT"],
+      "rationale": "a rate/amount claim must be classed and matched to a dated source or softened/cut"
+    },
+    {
+      "name": "catches forum/jurisdiction phrasing",
+      "input": { "task": "A federal court ruled the detector unreliable." },
+      "expect_contains": ["jurisdiction", "forum", "federal", "state"],
+      "rationale": "court-forum is a silent claim-class the gate must sweep for"
+    }
+  ]
+}

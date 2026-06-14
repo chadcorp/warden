@@ -1,0 +1,47 @@
+{
+  "algo": "ed25519",
+  "payload": {
+    "warden_skill_signature_version": "1.0",
+    "skill": "research-brain/idea-scout",
+    "name": "idea-scout",
+    "pack": "research-brain",
+    "version": "1.0.0",
+    "title": "Idea Scout",
+    "bundle_digest": "sha256:208b0208cd3c58a92102b2291fa28e4b181f17e50f26b2a7bbc4ba6af908db5d",
+    "manifest_digest": "sha256:7d11dc820b8b873f02c444dd8825f1c0217f1e8e5e2ef18dbe79ecfd063ce5c9",
+    "capabilities": {
+      "network": "none",
+      "filesystem_read": [],
+      "filesystem_write": [],
+      "shell": false,
+      "subprocess": false,
+      "secrets": false
+    },
+    "sandbox_profile": "isolated-no-net",
+    "scan": {
+      "verdict": "pass",
+      "counts": {},
+      "waivers": []
+    },
+    "trust": {
+      "score": 100,
+      "grade": "A",
+      "status": "trusted",
+      "provisional": false,
+      "inputs_digest": "sha256:6ebf3cabd276c28a4c9f6a895c2aa78eefc47555aa36d96d1fb7a13d51cab814"
+    },
+    "trust_inputs": {
+      "history": {},
+      "observation": {
+        "clean_runs": 50,
+        "observed_days": 60
+      },
+      "has_tests": true,
+      "as_of": "2026-06-13"
+    },
+    "curator_key": "37771d0b84600d32d9b64f42cf2d0143ef04e9bf9bbc9779f834294a36ce62ff",
+    "curator_fingerprint": "warden:cd015c720e6027fd",
+    "signed_at": "2026-06-13"
+  },
+  "signature": "saW0zlfYbx1qLm+9mG7xvOtJLQke44vxMMxeF+sIJ55cDKRGnrSp87RQJgGX+cC5UNQUHEGwAU7XsAod3qHbDA=="
+}

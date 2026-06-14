@@ -1,0 +1,11 @@
+{
+  "skill": "util-brain/word-count",
+  "cases": [
+    {
+      "name": "counts words and chars",
+      "input": { "text": "the trusted skill brain" },
+      "expect_output": { "words": 4, "chars": 23 },
+      "rationale": "deterministic counting; runs sandboxed with no capabilities"
+    }
+  ]
+}

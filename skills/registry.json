@@ -1,0 +1,174 @@
+{
+  "warden_registry_version": "1.0",
+  "updated_at": "2026-06-13",
+  "curator_fingerprint": "warden:cd015c720e6027fd",
+  "skills": {
+    "build-brain/build-product": {
+      "name": "build-product",
+      "pack": "build-brain",
+      "version": "1.0.0",
+      "title": "Build Product",
+      "summary": "Turn a validated idea into a complete, verified, shippable digital product to a top-tier bar.",
+      "tags": [
+        "build",
+        "product",
+        "delivery"
+      ],
+      "dir": "skills/build-brain/build-product",
+      "sig_file": "skills/build-brain/build-product/skill.sig.json",
+      "bundle_digest": "sha256:e7f597211037784cf58a44d8e5a74ebfb1b9fa348c6279f586fc88824cb92875",
+      "manifest_digest": "sha256:06ae930eaf28077bb78913de8562255075e47c3eaa35206231dd337d90be91d6",
+      "sandbox_profile": "isolated-no-net",
+      "kind": "instructions",
+      "visibility": "public",
+      "capabilities_summary": "no network, no filesystem, no shell, no secrets",
+      "trust": {
+        "score": 99,
+        "grade": "A",
+        "status": "trusted",
+        "provisional": true
+      },
+      "translog_seq": 0
+    },
+    "build-brain/ship-gate": {
+      "name": "ship-gate",
+      "pack": "build-brain",
+      "version": "1.0.0",
+      "title": "Ship Gate",
+      "summary": "An independent GO/NO-GO release gate that trusts no build claim and blocks on unwaivable conditions.",
+      "tags": [
+        "build",
+        "qa",
+        "release-gate",
+        "verification"
+      ],
+      "dir": "skills/build-brain/ship-gate",
+      "sig_file": "skills/build-brain/ship-gate/skill.sig.json",
+      "bundle_digest": "sha256:24e5b3dc3adc0bc3b974d0fa457f3bfecd331bde3e25eff5a267a60b5ed5d1d2",
+      "manifest_digest": "sha256:909bbc387f4ef27310aaafb4f802229a8458d4c089a7a634d68bc1546f87181e",
+      "sandbox_profile": "isolated-no-net",
+      "kind": "instructions",
+      "visibility": "public",
+      "capabilities_summary": "no network, no filesystem, no shell, no secrets",
+      "trust": {
+        "score": 100,
+        "grade": "A",
+        "status": "trusted",
+        "provisional": false
+      },
+      "translog_seq": 1
+    },
+    "compliance-brain/secret-sentinel": {
+      "name": "secret-sentinel",
+      "pack": "compliance-brain",
+      "version": "0.3.0",
+      "title": "Secret Sentinel",
+      "summary": "Review code or a skill bundle for credential-exfiltration patterns and least-privilege violations.",
+      "tags": [
+        "compliance",
+        "security",
+        "secrets",
+        "review"
+      ],
+      "dir": "skills/compliance-brain/secret-sentinel",
+      "sig_file": "skills/compliance-brain/secret-sentinel/skill.sig.json",
+      "bundle_digest": "sha256:b4e5fd4b52af77c732db672eec3457416c6c0c4758ed39c7111357ecbe27bf56",
+      "manifest_digest": "sha256:0f99f2283a23e4d350dade97187902195f7d1d1387a52ee8bede2b4b559f8e42",
+      "sandbox_profile": "isolated-no-net",
+      "kind": "instructions",
+      "visibility": "public",
+      "capabilities_summary": "no network, no filesystem, no shell, no secrets",
+      "trust": {
+        "score": 79,
+        "grade": "C",
+        "status": "trusted",
+        "provisional": true
+      },
+      "translog_seq": 2
+    },
+    "research-brain/fact-gate": {
+      "name": "fact-gate",
+      "pack": "research-brain",
+      "version": "1.0.0",
+      "title": "Fact Gate",
+      "summary": "Verify every factual, legal, or financial claim against a dated primary source before anything ships.",
+      "tags": [
+        "research",
+        "verification",
+        "claims",
+        "compliance"
+      ],
+      "dir": "skills/research-brain/fact-gate",
+      "sig_file": "skills/research-brain/fact-gate/skill.sig.json",
+      "bundle_digest": "sha256:a47d1120ec741fee37ab017240ddcf97025d6d8266bb4c1104e0967618334cf4",
+      "manifest_digest": "sha256:ba46bb5e0fda8bdde9d42e0d835a2edab9fa5872f62297f59563ed40c706ddc0",
+      "sandbox_profile": "isolated-no-net",
+      "kind": "instructions",
+      "visibility": "public",
+      "capabilities_summary": "no network, no filesystem, no shell, no secrets",
+      "trust": {
+        "score": 100,
+        "grade": "A",
+        "status": "trusted",
+        "provisional": false
+      },
+      "translog_seq": 3
+    },
+    "research-brain/idea-scout": {
+      "name": "idea-scout",
+      "pack": "research-brain",
+      "version": "1.0.0",
+      "title": "Idea Scout",
+      "summary": "Find and rigorously score a net-new idea before building, with evidence gates and a mandatory pre-mortem.",
+      "tags": [
+        "research",
+        "ideation",
+        "scoring",
+        "validation"
+      ],
+      "dir": "skills/research-brain/idea-scout",
+      "sig_file": "skills/research-brain/idea-scout/skill.sig.json",
+      "bundle_digest": "sha256:208b0208cd3c58a92102b2291fa28e4b181f17e50f26b2a7bbc4ba6af908db5d",
+      "manifest_digest": "sha256:7d11dc820b8b873f02c444dd8825f1c0217f1e8e5e2ef18dbe79ecfd063ce5c9",
+      "sandbox_profile": "isolated-no-net",
+      "kind": "instructions",
+      "visibility": "public",
+      "capabilities_summary": "no network, no filesystem, no shell, no secrets",
+      "trust": {
+        "score": 100,
+        "grade": "A",
+        "status": "trusted",
+        "provisional": false
+      },
+      "translog_seq": 4
+    },
+    "util-brain/word-count": {
+      "name": "word-count",
+      "pack": "util-brain",
+      "version": "1.0.0",
+      "title": "Word Count",
+      "summary": "A tiny code skill: counts words, characters, and lines in text. Runs sandboxed with every capability denied.",
+      "tags": [
+        "util",
+        "code",
+        "text",
+        "sandboxed"
+      ],
+      "dir": "skills/util-brain/word-count",
+      "sig_file": "skills/util-brain/word-count/skill.sig.json",
+      "bundle_digest": "sha256:d1353e3327028c4b65f8e143952e14c07cc83c75c50ae6abb0633c8020a58d9d",
+      "manifest_digest": "sha256:1e3cecb1926cf8bf13ed2a2184cfba3da77ac5a7fbe486541846b48f2400ba4b",
+      "sandbox_profile": "isolated-no-net",
+      "kind": "code",
+      "visibility": "public",
+      "capabilities_summary": "no network, no filesystem, no shell, no secrets",
+      "trust": {
+        "score": 82,
+        "grade": "B",
+        "status": "trusted",
+        "provisional": true
+      },
+      "translog_seq": 5
+    }
+  }
+}

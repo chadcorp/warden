@@ -1,0 +1,47 @@
+{
+  "algo": "ed25519",
+  "payload": {
+    "warden_skill_signature_version": "1.0",
+    "skill": "util-brain/word-count",
+    "name": "word-count",
+    "pack": "util-brain",
+    "version": "1.0.0",
+    "title": "Word Count",
+    "bundle_digest": "sha256:d1353e3327028c4b65f8e143952e14c07cc83c75c50ae6abb0633c8020a58d9d",
+    "manifest_digest": "sha256:1e3cecb1926cf8bf13ed2a2184cfba3da77ac5a7fbe486541846b48f2400ba4b",
+    "capabilities": {
+      "network": "none",
+      "filesystem_read": [],
+      "filesystem_write": [],
+      "shell": false,
+      "subprocess": false,
+      "secrets": false
+    },
+    "sandbox_profile": "isolated-no-net",
+    "scan": {
+      "verdict": "pass",
+      "counts": {},
+      "waivers": []
+    },
+    "trust": {
+      "score": 82,
+      "grade": "B",
+      "status": "trusted",
+      "provisional": true,
+      "inputs_digest": "sha256:f9de356e3bd4db7515947b7eed2278c6f6027e292c57606febf33c63882f932f"
+    },
+    "trust_inputs": {
+      "history": {},
+      "observation": {
+        "clean_runs": 12,
+        "observed_days": 14
+      },
+      "has_tests": true,
+      "as_of": "2026-06-13"
+    },
+    "curator_key": "37771d0b84600d32d9b64f42cf2d0143ef04e9bf9bbc9779f834294a36ce62ff",
+    "curator_fingerprint": "warden:cd015c720e6027fd",
+    "signed_at": "2026-06-13"
+  },
+  "signature": "8GDfYtV+B5Bj83KiwiWQ8aA1th6sFkxDtsSJ8iBRKdctB8xVTIRZU+nffByzb2IieQASeC5hGECT439npC2jDw=="
+}

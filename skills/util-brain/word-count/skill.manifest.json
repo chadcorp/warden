@@ -1,0 +1,29 @@
+{
+  "warden_manifest_version": "1.0",
+  "name": "word-count",
+  "pack": "util-brain",
+  "version": "1.0.0",
+  "title": "Word Count",
+  "summary": "A tiny code skill: counts words, characters, and lines in text. Runs sandboxed with every capability denied.",
+  "description": "Demonstrates Phase 1 sandboxed execution of a kind:code skill. Reads a JSON {text} on stdin, writes {words, chars, lines, avg_word_len} on stdout. Needs no network, filesystem, shell, or secrets.",
+  "author": "Warden Curated Pack",
+  "license": "Apache-2.0",
+  "kind": "code",
+  "entrypoint": "skill.py",
+  "input_schema": {
+    "type": "object",
+    "properties": { "text": { "type": "string", "description": "The text to measure." } },
+    "required": ["text"]
+  },
+  "sandbox_profile": "isolated-no-net",
+  "capabilities": {
+    "network": "none",
+    "filesystem_read": [],
+    "filesystem_write": [],
+    "shell": false,
+    "subprocess": false,
+    "secrets": false
+  },
+  "tests": ["tests/test.json"],
+  "tags": ["util", "code", "text", "sandboxed"]
+}

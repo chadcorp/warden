@@ -1,0 +1,11 @@
+Warden — the trusted skill brain for open agents
+Copyright 2026 The Warden Authors
+
+This product includes software developed as the Phase 0 reference implementation
+of the Agent Skill Trust Spec.
+
+The reference implementation in warden/ is pure Python standard library and has
+no third-party runtime dependencies. The Ed25519 implementation (warden/ed25519.py)
+follows RFC 8032.
+
+Trust is a signal, not a guarantee. See SECURITY.md.

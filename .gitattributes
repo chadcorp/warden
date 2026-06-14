@@ -1,0 +1,16 @@
+# Enforce LF on checkout on EVERY platform.
+#
+# Warden's content addressing hashes the raw bytes of each file (SKILL.md,
+# manifests, etc.), and signatures cover that digest. If git rewrote line
+# endings to CRLF on a Windows clone, the re-derived digest would not match the
+# signed digest and `warden verify-all` would fail on a fresh checkout. Forcing
+# LF keeps the bytes identical everywhere, so signatures verify on clone.
+* text=auto eol=lf
+
+# Binary assets — never apply EOL normalization.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary

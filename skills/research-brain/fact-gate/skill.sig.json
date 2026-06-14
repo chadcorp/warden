@@ -1,0 +1,47 @@
+{
+  "algo": "ed25519",
+  "payload": {
+    "warden_skill_signature_version": "1.0",
+    "skill": "research-brain/fact-gate",
+    "name": "fact-gate",
+    "pack": "research-brain",
+    "version": "1.0.0",
+    "title": "Fact Gate",
+    "bundle_digest": "sha256:a47d1120ec741fee37ab017240ddcf97025d6d8266bb4c1104e0967618334cf4",
+    "manifest_digest": "sha256:ba46bb5e0fda8bdde9d42e0d835a2edab9fa5872f62297f59563ed40c706ddc0",
+    "capabilities": {
+      "network": "none",
+      "filesystem_read": [],
+      "filesystem_write": [],
+      "shell": false,
+      "subprocess": false,
+      "secrets": false
+    },
+    "sandbox_profile": "isolated-no-net",
+    "scan": {
+      "verdict": "pass",
+      "counts": {},
+      "waivers": []
+    },
+    "trust": {
+      "score": 100,
+      "grade": "A",
+      "status": "trusted",
+      "provisional": false,
+      "inputs_digest": "sha256:ca2ea9dea4cb4f28e9e33af099059696bd0f7791a34c0f51fb0347209841ec97"
+    },
+    "trust_inputs": {
+      "history": {},
+      "observation": {
+        "clean_runs": 44,
+        "observed_days": 55
+      },
+      "has_tests": true,
+      "as_of": "2026-06-13"
+    },
+    "curator_key": "37771d0b84600d32d9b64f42cf2d0143ef04e9bf9bbc9779f834294a36ce62ff",
+    "curator_fingerprint": "warden:cd015c720e6027fd",
+    "signed_at": "2026-06-13"
+  },
+  "signature": "IVGxrOoxnczEMS0kc6i9u/AY8Q7aXJfvG7hfpO5tRdLFeVLRs9uOXc+sV6/QLguFXOCVEOXYxA8JnWokIhZjAQ=="
+}

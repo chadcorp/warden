@@ -1,0 +1,19 @@
+{
+  "algo": "ed25519",
+  "payload": {
+    "warden_kpack_signature_version": "1.0",
+    "kpack": "owasp-agentic-top10",
+    "version": "1.0.0",
+    "title": "Agent-Skill Supply-Chain Threats — field reference",
+    "bundle_digest": "sha256:29a09a15bff1932b3642e52f32286ff6786a634426278680d78d545778aa4b87",
+    "manifest_digest": "sha256:e5ba7587c76ea08c290ca4ed4747c14014035a99bbab35c80592870bc57a2400",
+    "scan": {
+      "verdict": "pass",
+      "counts": {}
+    },
+    "curator_key": "37771d0b84600d32d9b64f42cf2d0143ef04e9bf9bbc9779f834294a36ce62ff",
+    "curator_fingerprint": "warden:cd015c720e6027fd",
+    "signed_at": "2026-06-13"
+  },
+  "signature": "VfKRVylHCZift/qXImkgRGphDXKMwK2p1BtL3TgZ9v4C/YYzlajG+SdnbKtYI4pYCMn5Jw1jW81ecXaIJOrXAA=="
+}

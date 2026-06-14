@@ -1,0 +1,25 @@
+{
+  "warden_kpack_registry_version": "1.0",
+  "updated_at": "2026-06-13",
+  "curator_fingerprint": "warden:cd015c720e6027fd",
+  "packs": {
+    "owasp-agentic-top10": {
+      "name": "owasp-agentic-top10",
+      "version": "1.0.0",
+      "title": "Agent-Skill Supply-Chain Threats — field reference",
+      "summary": "A concise, signed, read-only reference to the threat classes Warden addresses, aligned to the OWASP Agentic Skills Top 10.",
+      "tags": [
+        "security",
+        "owasp",
+        "reference",
+        "supply-chain"
+      ],
+      "dir": "knowledge/owasp-agentic-top10",
+      "bundle_digest": "sha256:29a09a15bff1932b3642e52f32286ff6786a634426278680d78d545778aa4b87",
+      "files": [
+        "content.md",
+        "sources.md"
+      ]
+    }
+  }
+}

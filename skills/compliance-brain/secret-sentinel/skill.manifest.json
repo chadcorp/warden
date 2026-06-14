@@ -1,0 +1,38 @@
+{
+  "warden_manifest_version": "1.0",
+  "name": "secret-sentinel",
+  "pack": "compliance-brain",
+  "version": "0.3.0",
+  "title": "Secret Sentinel",
+  "summary": "Review code or a skill bundle for credential-exfiltration patterns and least-privilege violations.",
+  "description": "A security-review reasoning skill: it teaches the agent to recognize secret-access-correlated-with-egress, over-broad capabilities, and capability drift. Because it necessarily NAMES sensitive indicators (credential file paths), it ships a curator-acknowledged scanner waiver -- an accountable exception, recorded in the transparency log.",
+  "author": "Warden Curated Pack",
+  "license": "Apache-2.0",
+  "kind": "instructions",
+  "entrypoint": "SKILL.md",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "task": { "type": "string", "description": "The code or skill bundle to review for secret-handling risk." }
+    },
+    "required": ["task"]
+  },
+  "sandbox_profile": "isolated-no-net",
+  "capabilities": {
+    "network": "none",
+    "filesystem_read": [],
+    "filesystem_write": [],
+    "shell": false,
+    "subprocess": false,
+    "secrets": false
+  },
+  "scan_allow": [
+    {
+      "class": "drift",
+      "reason": "This is a security-review skill; its instructions intentionally enumerate sensitive credential-file indicators (e.g. cloud credential and SSH key paths) as patterns to RECOGNIZE. It declares and uses no capabilities itself; the references are documentation, not behavior. Curator-acknowledged.",
+      "scope": "SKILL.md"
+    }
+  ],
+  "tests": ["tests/test.json"],
+  "tags": ["compliance", "security", "secrets", "review"]
+}

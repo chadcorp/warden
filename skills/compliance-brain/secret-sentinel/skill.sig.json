@@ -1,0 +1,55 @@
+{
+  "algo": "ed25519",
+  "payload": {
+    "warden_skill_signature_version": "1.0",
+    "skill": "compliance-brain/secret-sentinel",
+    "name": "secret-sentinel",
+    "pack": "compliance-brain",
+    "version": "0.3.0",
+    "title": "Secret Sentinel",
+    "bundle_digest": "sha256:b4e5fd4b52af77c732db672eec3457416c6c0c4758ed39c7111357ecbe27bf56",
+    "manifest_digest": "sha256:0f99f2283a23e4d350dade97187902195f7d1d1387a52ee8bede2b4b559f8e42",
+    "capabilities": {
+      "network": "none",
+      "filesystem_read": [],
+      "filesystem_write": [],
+      "shell": false,
+      "subprocess": false,
+      "secrets": false
+    },
+    "sandbox_profile": "isolated-no-net",
+    "scan": {
+      "verdict": "pass",
+      "counts": {
+        "ACK": 1
+      },
+      "waivers": [
+        {
+          "class": "drift",
+          "reason": "This is a security-review skill; its instructions intentionally enumerate sensitive credential-file indicators (e.g. cloud credential and SSH key paths) as patterns to RECOGNIZE. It declares and uses no capabilities itself; the references are documentation, not behavior. Curator-acknowledged.",
+          "scope": "SKILL.md"
+        }
+      ]
+    },
+    "trust": {
+      "score": 79,
+      "grade": "C",
+      "status": "trusted",
+      "provisional": true,
+      "inputs_digest": "sha256:ff3daab7853035c3b4e7198a2f0d64fecf1975bcbd70ed26a532ef59adec9b4c"
+    },
+    "trust_inputs": {
+      "history": {},
+      "observation": {
+        "clean_runs": 6,
+        "observed_days": 9
+      },
+      "has_tests": true,
+      "as_of": "2026-06-13"
+    },
+    "curator_key": "37771d0b84600d32d9b64f42cf2d0143ef04e9bf9bbc9779f834294a36ce62ff",
+    "curator_fingerprint": "warden:cd015c720e6027fd",
+    "signed_at": "2026-06-13"
+  },
+  "signature": "2zFohiL6szeIM4bxc4fU1Eg/0ve2kYrcjCV5Jpe/HW/40bs2z/ucnG8x8Vz1fqyJpoIRNMNX3tQqxrse2m9+DA=="
+}

@@ -1,0 +1,31 @@
+{
+  "warden_manifest_version": "1.0",
+  "name": "ship-gate",
+  "pack": "build-brain",
+  "version": "1.0.0",
+  "title": "Ship Gate",
+  "summary": "An independent GO/NO-GO release gate that trusts no build claim and blocks on unwaivable conditions.",
+  "description": "Runs cold on a finished deliverable, re-derives the numbers/facts/files from artifacts rather than the build log, and returns a GO/NO-GO with explicit blocking reasons.",
+  "author": "Warden Curated Pack",
+  "license": "Apache-2.0",
+  "kind": "instructions",
+  "entrypoint": "SKILL.md",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "task": { "type": "string", "description": "Path or description of the finished deliverable to gate." }
+    },
+    "required": ["task"]
+  },
+  "sandbox_profile": "isolated-no-net",
+  "capabilities": {
+    "network": "none",
+    "filesystem_read": [],
+    "filesystem_write": [],
+    "shell": false,
+    "subprocess": false,
+    "secrets": false
+  },
+  "tests": ["tests/test.json"],
+  "tags": ["build", "qa", "release-gate", "verification"]
+}

@@ -1,0 +1,17 @@
+{
+  "skill": "build-brain/build-product",
+  "cases": [
+    {
+      "name": "insists on an empty-state guard",
+      "input": { "task": "a budgeting workbook for freelancers" },
+      "expect_contains": ["empty state", "reconcile", "verify"],
+      "rationale": "anything that computes must guard the empty state and reconcile to the cent"
+    },
+    {
+      "name": "hands off to an independent gate",
+      "input": { "task": "a habit-streak app" },
+      "expect_contains": ["ship-gate", "independent"],
+      "rationale": "the builder must never gate its own work"
+    }
+  ]
+}

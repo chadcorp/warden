@@ -1,0 +1,9 @@
+# Cloudflare Pages redirects.
+# https://developers.cloudflare.com/pages/configuration/redirects/
+#
+# Vanity shortlinks to the canonical docs (update the repo URL first, then
+# uncomment). Cloudflare handles trailing-slash normalization automatically.
+#
+# /spec    https://github.com/chadcorp/warden/blob/main/TRUST_SPEC.md    302
+# /threats https://github.com/chadcorp/warden/blob/main/THREAT_MODEL.md  302
+# /github  https://github.com/chadcorp/warden                            302

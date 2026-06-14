@@ -1,0 +1,47 @@
+{
+  "algo": "ed25519",
+  "payload": {
+    "warden_skill_signature_version": "1.0",
+    "skill": "build-brain/build-product",
+    "name": "build-product",
+    "pack": "build-brain",
+    "version": "1.0.0",
+    "title": "Build Product",
+    "bundle_digest": "sha256:e7f597211037784cf58a44d8e5a74ebfb1b9fa348c6279f586fc88824cb92875",
+    "manifest_digest": "sha256:06ae930eaf28077bb78913de8562255075e47c3eaa35206231dd337d90be91d6",
+    "capabilities": {
+      "network": "none",
+      "filesystem_read": [],
+      "filesystem_write": [],
+      "shell": false,
+      "subprocess": false,
+      "secrets": false
+    },
+    "sandbox_profile": "isolated-no-net",
+    "scan": {
+      "verdict": "pass",
+      "counts": {},
+      "waivers": []
+    },
+    "trust": {
+      "score": 99,
+      "grade": "A",
+      "status": "trusted",
+      "provisional": true,
+      "inputs_digest": "sha256:a3115611b9e127b24c093cd83baf6552825203eec1ccd27414d6b3dba2b021dc"
+    },
+    "trust_inputs": {
+      "history": {},
+      "observation": {
+        "clean_runs": 38,
+        "observed_days": 50
+      },
+      "has_tests": true,
+      "as_of": "2026-06-13"
+    },
+    "curator_key": "37771d0b84600d32d9b64f42cf2d0143ef04e9bf9bbc9779f834294a36ce62ff",
+    "curator_fingerprint": "warden:cd015c720e6027fd",
+    "signed_at": "2026-06-13"
+  },
+  "signature": "DNSNuToJKRcGSxDWDRVP6PFl2B2DCzrAiKILRgy8cr59zkbKQ9NX+/1nnih/hFYNY6BCKK2LsXqP/2KRjfevAw=="
+}

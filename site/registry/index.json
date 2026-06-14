@@ -1,0 +1,189 @@
+{
+  "index": {
+    "warden_index_version": "1.0",
+    "generated_at": "2026-06-13",
+    "node_version": "0.2.0",
+    "curator_fingerprint": "warden:cd015c720e6027fd",
+    "transparency_root": "sha256:9412435baebe886b8b380a78935c406ba39a0377bb95605711b3517bb945e0d9",
+    "transparency_count": 7,
+    "skills": [
+      {
+        "id": "build-brain/build-product",
+        "name": "build-product",
+        "pack": "build-brain",
+        "version": "1.0.0",
+        "title": "Build Product",
+        "summary": "Turn a validated idea into a complete, verified, shippable digital product to a top-tier bar.",
+        "kind": "instructions",
+        "visibility": "public",
+        "trust": {
+          "score": 99,
+          "grade": "A",
+          "status": "trusted",
+          "provisional": true
+        },
+        "sandbox_profile": "isolated-no-net",
+        "capabilities": "no network, no filesystem, no shell, no secrets",
+        "bundle_digest": "sha256:e7f597211037784cf58a44d8e5a74ebfb1b9fa348c6279f586fc88824cb92875",
+        "tags": [
+          "build",
+          "product",
+          "delivery"
+        ],
+        "translog_seq": 0
+      },
+      {
+        "id": "build-brain/ship-gate",
+        "name": "ship-gate",
+        "pack": "build-brain",
+        "version": "1.0.0",
+        "title": "Ship Gate",
+        "summary": "An independent GO/NO-GO release gate that trusts no build claim and blocks on unwaivable conditions.",
+        "kind": "instructions",
+        "visibility": "public",
+        "trust": {
+          "score": 100,
+          "grade": "A",
+          "status": "trusted",
+          "provisional": false
+        },
+        "sandbox_profile": "isolated-no-net",
+        "capabilities": "no network, no filesystem, no shell, no secrets",
+        "bundle_digest": "sha256:24e5b3dc3adc0bc3b974d0fa457f3bfecd331bde3e25eff5a267a60b5ed5d1d2",
+        "tags": [
+          "build",
+          "qa",
+          "release-gate",
+          "verification"
+        ],
+        "translog_seq": 1
+      },
+      {
+        "id": "compliance-brain/secret-sentinel",
+        "name": "secret-sentinel",
+        "pack": "compliance-brain",
+        "version": "0.3.0",
+        "title": "Secret Sentinel",
+        "summary": "Review code or a skill bundle for credential-exfiltration patterns and least-privilege violations.",
+        "kind": "instructions",
+        "visibility": "public",
+        "trust": {
+          "score": 79,
+          "grade": "C",
+          "status": "trusted",
+          "provisional": true
+        },
+        "sandbox_profile": "isolated-no-net",
+        "capabilities": "no network, no filesystem, no shell, no secrets",
+        "bundle_digest": "sha256:b4e5fd4b52af77c732db672eec3457416c6c0c4758ed39c7111357ecbe27bf56",
+        "tags": [
+          "compliance",
+          "security",
+          "secrets",
+          "review"
+        ],
+        "translog_seq": 2
+      },
+      {
+        "id": "research-brain/fact-gate",
+        "name": "fact-gate",
+        "pack": "research-brain",
+        "version": "1.0.0",
+        "title": "Fact Gate",
+        "summary": "Verify every factual, legal, or financial claim against a dated primary source before anything ships.",
+        "kind": "instructions",
+        "visibility": "public",
+        "trust": {
+          "score": 100,
+          "grade": "A",
+          "status": "trusted",
+          "provisional": false
+        },
+        "sandbox_profile": "isolated-no-net",
+        "capabilities": "no network, no filesystem, no shell, no secrets",
+        "bundle_digest": "sha256:a47d1120ec741fee37ab017240ddcf97025d6d8266bb4c1104e0967618334cf4",
+        "tags": [
+          "research",
+          "verification",
+          "claims",
+          "compliance"
+        ],
+        "translog_seq": 3
+      },
+      {
+        "id": "research-brain/idea-scout",
+        "name": "idea-scout",
+        "pack": "research-brain",
+        "version": "1.0.0",
+        "title": "Idea Scout",
+        "summary": "Find and rigorously score a net-new idea before building, with evidence gates and a mandatory pre-mortem.",
+        "kind": "instructions",
+        "visibility": "public",
+        "trust": {
+          "score": 100,
+          "grade": "A",
+          "status": "trusted",
+          "provisional": false
+        },
+        "sandbox_profile": "isolated-no-net",
+        "capabilities": "no network, no filesystem, no shell, no secrets",
+        "bundle_digest": "sha256:208b0208cd3c58a92102b2291fa28e4b181f17e50f26b2a7bbc4ba6af908db5d",
+        "tags": [
+          "research",
+          "ideation",
+          "scoring",
+          "validation"
+        ],
+        "translog_seq": 4
+      },
+      {
+        "id": "util-brain/word-count",
+        "name": "word-count",
+        "pack": "util-brain",
+        "version": "1.0.0",
+        "title": "Word Count",
+        "summary": "A tiny code skill: counts words, characters, and lines in text. Runs sandboxed with every capability denied.",
+        "kind": "code",
+        "visibility": "public",
+        "trust": {
+          "score": 82,
+          "grade": "B",
+          "status": "trusted",
+          "provisional": true
+        },
+        "sandbox_profile": "isolated-no-net",
+        "capabilities": "no network, no filesystem, no shell, no secrets",
+        "bundle_digest": "sha256:d1353e3327028c4b65f8e143952e14c07cc83c75c50ae6abb0633c8020a58d9d",
+        "tags": [
+          "util",
+          "code",
+          "text",
+          "sandboxed"
+        ],
+        "translog_seq": 5
+      }
+    ],
+    "knowledge_packs": [
+      {
+        "name": "owasp-agentic-top10",
+        "version": "1.0.0",
+        "title": "Agent-Skill Supply-Chain Threats — field reference",
+        "summary": "A concise, signed, read-only reference to the threat classes Warden addresses, aligned to the OWASP Agentic Skills Top 10.",
+        "bundle_digest": "sha256:29a09a15bff1932b3642e52f32286ff6786a634426278680d78d545778aa4b87",
+        "files": [
+          "content.md",
+          "sources.md"
+        ],
+        "tags": [
+          "security",
+          "owasp",
+          "reference",
+          "supply-chain"
+        ]
+      }
+    ],
+    "curator_key": "37771d0b84600d32d9b64f42cf2d0143ef04e9bf9bbc9779f834294a36ce62ff"
+  },
+  "signature": "FpdfKlDVsaWD6XmmYF2LdH/7wWdwWHZme+jwlrX5KPAofRI4S6tO2C7zQ5sTG6+nQCO/isAPb0swtnB533AnAw==",
+  "algo": "ed25519"
+}

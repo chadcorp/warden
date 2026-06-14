@@ -1,0 +1,15 @@
+# Cloudflare Pages headers. Applied to the deployed static site.
+# https://developers.cloudflare.com/pages/configuration/headers/
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), interest-cohort=()
+  Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self' https:; base-uri 'self'; form-action 'self' https:; frame-ancestors 'none'
+  # connect-src allows the waitlist POST over HTTPS to any host. To tighten it,
+  # replace `https:` with your exact endpoint, e.g. https://formspree.io
+
+# long-cache the immutable signed index payload
+/registry/index.json
+  Cache-Control: public, max-age=300

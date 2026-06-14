@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://warden.dev/schema/transparency-log-entry.schema.json",
+  "title": "Warden Transparency Log Entry",
+  "description": "One append-only, hash-linked entry in the public transparency log. entry_hash = sha256(canonical(entry without entry_hash)); prev links it to the previous entry.",
+  "type": "object",
+  "required": ["seq", "action", "timestamp", "skill", "version", "bundle_digest", "entry_hash"],
+  "properties": {
+    "seq": { "type": "integer", "minimum": 0 },
+    "action": { "enum": ["publish", "yank"] },
+    "timestamp": { "type": "string" },
+    "skill": { "type": "string", "description": "pack/name" },
+    "version": { "type": "string" },
+    "bundle_digest": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" },
+    "manifest_digest": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" },
+    "trust_score": { "type": "integer", "minimum": 0, "maximum": 100 },
+    "trust_grade": { "enum": ["A", "B", "C", "D", "F"] },
+    "curator": { "type": "string", "description": "curator key fingerprint" },
+    "signature": { "type": "string", "description": "base64 Ed25519 signature of the publish payload" },
+    "prev": { "type": ["string", "null"], "description": "entry_hash of the previous entry (null for seq 0)" },
+    "entry_hash": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" }
+  }
+}

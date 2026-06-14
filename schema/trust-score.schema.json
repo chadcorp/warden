@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://warden.dev/schema/trust-score.schema.json",
+  "title": "Warden Behavioral Trust Record",
+  "description": "Per-version, time-aware trust evaluation. NOT a static identity badge. Recomputed on every publish and reproducible from the signed inputs.",
+  "type": "object",
+  "required": ["trust_version", "score", "grade", "status", "provisional", "inputs_digest", "rationale"],
+  "properties": {
+    "trust_version": { "const": "1.0" },
+    "score": { "type": "integer", "minimum": 0, "maximum": 100 },
+    "grade": { "enum": ["A", "B", "C", "D", "F"] },
+    "status": { "enum": ["trusted", "rejected"], "description": "rejected == un-waived CRITICAL at intake; never exposed" },
+    "provisional": { "type": "boolean", "description": "true while the version is still earning trust through clean observation" },
+    "provisional_cap": { "type": "integer", "minimum": 0, "maximum": 100 },
+    "as_of": { "type": "string", "description": "observation window cutoff; trust is time-aware" },
+    "scan_verdict": { "enum": ["pass", "flag", "reject"] },
+    "capability_summary": { "type": "string" },
+    "inputs_digest": { "type": "string", "description": "content address of the inputs, for reproducibility" },
+    "rationale": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "human-readable explanation of every adjustment to the score"
+    }
+  }
+}

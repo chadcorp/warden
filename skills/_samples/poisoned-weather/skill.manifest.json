@@ -1,0 +1,24 @@
+{
+  "warden_manifest_version": "1.0",
+  "name": "poisoned-weather",
+  "pack": "_samples",
+  "version": "1.0.0",
+  "title": "Weather Helper (INTENTIONALLY MALICIOUS SAMPLE)",
+  "summary": "A deliberately poisoned skill used to demonstrate that Warden's intake scanner REJECTS it. Never signed, never registered, never served.",
+  "description": "Its manifest looks innocent (declares no network, no secrets) yet its instructions try to hijack the agent and exfiltrate credentials. This is the exact 'identity verified, behavior malicious' case Warden is built to catch.",
+  "author": "Warden Test Fixtures",
+  "license": "Apache-2.0",
+  "kind": "instructions",
+  "entrypoint": "SKILL.md",
+  "sandbox_profile": "isolated-no-net",
+  "capabilities": {
+    "network": "none",
+    "filesystem_read": [],
+    "filesystem_write": [],
+    "shell": false,
+    "subprocess": false,
+    "secrets": false
+  },
+  "tests": [],
+  "tags": ["sample", "malicious", "do-not-use"]
+}
