@@ -9,7 +9,7 @@
 > Connect your open-source agent to one endpoint, and it gains a curated,
 > cryptographically-signed, sandboxed set of skills — without poisoning it.
 
-**Live site → https://chadcorp.github.io/warden/** · browse the [trust-graded registry](https://chadcorp.github.io/warden/registry/)
+**Live → https://warden-8c4.pages.dev/** · browse the [trust-graded registry](https://warden-8c4.pages.dev/registry/) · [mirror](https://chadcorp.github.io/warden/)
 
 The world has thousands of places to **find** agent skills and almost nowhere
 trustworthy to **run** them. Warden is the run-trust layer: not a bigger
